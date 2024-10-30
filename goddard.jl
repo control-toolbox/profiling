@@ -53,6 +53,12 @@ docp, nlp = direct_transcription(ocp)
 
 nlp_sol = ipopt(nlp; print_level=5, mu_strategy="adaptive", tol=1e-8, sb="yes")
 
+model = nlp
 x = nlp_sol.solution
+y = nlp_sol.multipliers
 
-obj(nlp, x)
+obj(model, x)
+cons(model, x)
+grad(model, x)
+jac(model, x)
+hess(model, x, y)
