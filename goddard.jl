@@ -48,7 +48,7 @@ end
 # classical usage: solve the problem
 sol = solve(ocp; grid_size=100)
 
-# advanced usage: get the NLP model and play with it
+# advanced usage: get the NLP model, the solution and play with it
 docp, nlp = direct_transcription(ocp)
 
 nlp_sol = ipopt(nlp; print_level=5, mu_strategy="adaptive", tol=1e-8, sb="yes")
